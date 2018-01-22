@@ -1,8 +1,7 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'antd-mobile';
 
-function RecipeListItem({ name }) {
+function RecipeListItem({ name, description }) {
   return (
     <Card full>
       <Card.Header
@@ -10,7 +9,7 @@ function RecipeListItem({ name }) {
         thumb={`http://lorempixel.com/64/64/food/${name}`}
       />
       <Card.Body>
-        <div>This is content of `Card`</div>
+        <div>{description}</div>
       </Card.Body>
     </Card>
   );
@@ -18,6 +17,7 @@ function RecipeListItem({ name }) {
 
 RecipeListItem.propTypes = {
   name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 };
 
 RecipeListItem.defaultProps = {};

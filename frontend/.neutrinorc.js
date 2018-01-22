@@ -10,7 +10,7 @@ module.exports = {
       .use('@neutrinojs/airbnb', {
         eslint: {
           baseConfig: {
-            extends: [ 'marduke182', 'prettier', 'prettier/react' ]
+            extends: ['marduke182', 'prettier', 'prettier/react'],
           },
           rules: {
             'object-curly-newline': 0,
@@ -19,24 +19,18 @@ module.exports = {
       })
       .use('@neutrinojs/react', {
         html: {
-          title: 'frontend',
+          title: 'Recipes',
         },
-        hot: false,
         babel: {
           plugins: [
             [
               require.resolve('babel-plugin-import'),
-              { libraryName: 'antd-mobile', libraryDirectory: 'es', style: 'css' },
+              { libraryName: 'antd-mobile', libraryDirectory: 'lib', style: 'css' },
             ],
           ],
         },
       })
-      .use('@neutrinojs/jest', {
-        testMatch: ['**/__tests__/**/*.test.js?(x)', '**/?(*.)(spec|test).js?(x)'],
-        testRegex: '',
-        setupTestFrameworkScriptFile: require.resolve('./jest/framework'),
-        setupFiles: [require.resolve('./jest/setup')],
-      });
+      .use('@marduke182/neutrinojs-jest-enzyme');
 
     neutrino.config.resolve.modules.add(resolve('src'));
 
